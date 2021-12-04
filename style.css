@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: beige;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 816px;
+  border: 2px solid black;
+}
+
+.box {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+}
+
+.hovered {
+  background: red;
+}
