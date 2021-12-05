@@ -1,26 +1,29 @@
+const container = document.querySelector('.container');
 const grid = document.querySelector('.grid');
-const div = document.querySelectorAll('.box');
+const btnBlack  = document.querySelector('button');
+const btnRGB = document.querySelector('button');
+const btnGrey = document.querySelector('button');
+const btnSize = document.querySelector('button')
+const buttonContainer = document.querySelector('buttons');
 
-let gridSize = (16 * 16);
 
-
-// function to create a grid box. Runs at time of open. 
-createDivs(gridSize)
-
-function createDivs(gridSize) {
-	let i = 0;
-	do {
-		const div = document.createElement('div');
-		div.classList.add('box');
-		grid.appendChild(div);
-		i++
-	} while (i < gridSize);
+// function to create divs
+function createDivs(col, rows) {
+		let i = 0;
+		do {
+			const div = document.createElement('div');
+			div.addEventListener('mouseover', updateCell);
+			div.style.backgroundColor ='rgb(255, 255, 255, 0)';
+			container.appendChild(div).classList.add('box');
+			i++;
+		} while (i < (col * rows));
 }
 
+createDivs(16,16)
 
-// hover over is not wokring
-function addHoverStyle() {
-	div.classList.add('hovered');
+function updateCell(e) {
+	let div = e.target;
+	div.style.backgroundColor = "red";
+
 }
-
 
