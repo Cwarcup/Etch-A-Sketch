@@ -1,25 +1,20 @@
 const section = document.querySelector('.section');
-const header = document.querySelector('#header');
 const container = document.querySelector('.container');
-const grid = document.querySelector('.grid');
 const div = document.querySelector(".box");
 const buttonContainer = document.querySelector('.buttons');
 
-const MIN_WIDTH_PX = 450;
-const MIN_HEIGHT_PX = 450;
+const MIN_WIDTH_PX = 350;
+const MIN_HEIGHT_PX = 350;
 const GRID_SIZE_DEFAULT = 25;
-const BUTTON_HEIGHT_PX = 33;
 const MARGIN_PX = 20;
 const GRID_BORDER_PX = 10;
 
-let gridWidthPx = 960;
+let gridWidthPx = 720;
 let gridSize = GRID_SIZE_DEFAULT;
 
-
-// create header and buttons:
 init();
 
-
+// run at open
 function init() {
 
 	let borderColor = 'rgb(114,160,193)';
@@ -33,16 +28,8 @@ function init() {
 
 	section.style.margin = `${MARGIN_PX}px`;
 	section.style.minWidth = `${MIN_WIDTH_PX}px`;
-
-	createDivs(gridSize);
-
 	createButtons();
-
-}
-
-
-function getCellSizePx() {
-	return gridWidthPx / gridSize;
+	createDivs(gridSize);
 }
 
 // function to create divs
@@ -65,32 +52,26 @@ function createDivs(gridSize) {
 		} while (i < (gridSize ** 2));
 }
 
-
-
-//change cell colour
-function updateCell(e) {
-	let div = e.target;
-	div.style.backgroundColor = "red";
-}
-
-// need to create button to restart grid 
+//create 'clear' button
 function createButtons() {
 	const rstbtn = document.createElement('button');
 	rstbtn.addEventListener('click', clearGrid);
 	rstbtn.textContent = "Clear Grid";
 	buttonContainer.appendChild(rstbtn);
-
-	const boxButton = document.createElement('button');
-	boxButton.addEventListener('click', changeBoxNumber);
-	boxButton.textContent = 'Change Number Of Boxes';
-	buttonContainer.appendChild(boxButton);
-
-	const boxSlider = document.createElement('input');
-	boxSlider.classList.add('slider');
-	buttonContainer.appendChild(boxSlider);
-
 }
 
+//determine each box size in px
+function getCellSizePx() {
+	return gridWidthPx / gridSize;
+}
+
+//change box colour
+function updateCell(e) {
+	let div = e.target;
+	div.style.backgroundColor = "black";
+}
+
+//removes the color from grid and creates new divs
 function clearGrid() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
@@ -98,12 +79,36 @@ function clearGrid() {
 	createDivs(gridSize)
 }
 
+//Slider
+//ToFix: certain values (i.e., 39) cause boxes not to fit in boarder. WHY!
+const sizeValue = document.getElementById('sizeValue');
+const sizeSlider = document.getElementById('sizeSlider');
 
-function changeBoxNumber() {
-	gridSize = parseInt(prompt('Please enter the number of cells per side:'));
-	if (gridSize > 100 || gridSize < 0) {
-		gridSize = parseInt(prompt('Enter a cell number between 0 and 100'))
-	}
-	
+sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value)
+sizeSlider.onchange = (e) => changeSize(e.target.value)
+
+function changeSize(value) {
+	setCurrentSize(value);
+	updateSizeValue(value);
 	clearGrid();
+}
+function updateSizeValue(value) {
+	sizeValue.innerHTML = `${value} x ${value}`
+  }
+
+  function setCurrentSize(newSize) {
+	  gridSize = newSize;
+  }
+
+//   ToFix: rainbow button. RGB works, but isnt changing when clicked. 
+const rainbowbtn = document.querySelector('.rainbowbtn');
+
+rainbowbtn.addEventListener('click',toRainbow(e));
+
+function toRainbow(e) {
+	let div = e.target;
+	const randomR = Math.floor(Math.random() * 256)
+    const randomG = Math.floor(Math.random() * 256)
+    const randomB = Math.floor(Math.random() * 256)
+    div.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
 }

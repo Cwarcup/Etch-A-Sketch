@@ -27,3 +27,14 @@ body {
   box-sizing: border-box;
   margin: 0;
 }
+
+.buttons {
+  display: flex;
+  gap: 30px;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
