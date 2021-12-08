@@ -1,16 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Gwendolyn&family=Rubik:wght@300&display=swap");
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Rubik", sans-serif;
   margin: 0;
   background: rgb(240, 240, 240);
 }
 
+h1 {
+  display: flex;
+  justify-content: center;
+  font-family: "Gwendolyn", cursive;
+  font-size: 90px;
+}
 .section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
 }
@@ -30,11 +37,16 @@ body {
 
 .buttons {
   display: flex;
+  flex-direction: column;
   gap: 30px;
+  font-size: 18px;
 }
 
 .slider-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#color-picker {
 }
