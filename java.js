@@ -8,10 +8,10 @@ const colorButtons = document.querySelector('#radio-buttons');
 const MIN_WIDTH_PX = 350;
 const MIN_HEIGHT_PX = 350;
 const GRID_SIZE_DEFAULT = 25; // change starting cell
-const MARGIN_PX = 20;
+const MARGIN_PX = 0;
 const GRID_BORDER_PX = 10;
 
-let gridWidthPx = 720;
+let gridWidthPx = 500;
 let gridSize = GRID_SIZE_DEFAULT;
 
 init();

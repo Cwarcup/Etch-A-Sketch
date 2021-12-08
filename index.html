@@ -7,39 +7,58 @@
 	<title>Etch-A-Sketch Game</title>
 	<script type="text/javascript" defer="defer" src="java.js"></script>
 	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" href="/Users/curtisw/Etch-A-Sketch/icon.png" />
 </head>
 <body>
-	<h1 id = 'header'>Etch-A-Sketch Game</h1>
-	<div class = 'section'>
-		<div class = 'buttons'>
-			<button id='clear'>Clear Grid</button>
-			<div class='slider-container'>
-				<div id="sizeValue" class="size-value">25 x 25</div>
-				<input autocomplete="off" id="sizeSlider" type="range" value="25" min="1" max="50" />
+	<div id = 'header'>Etch-A-Sketch Game</div>
+	<main>
+		<div class = 'section'>
+			<div class = 'buttons'>
+				<button id='clear'>Clear Grid</button>
+				<div class='slider-container'>
+					<div id="sizeValue" class="size-value">25 x 25</div>
+					<input autocomplete="off" id="sizeSlider" type="range" value="25" min="1" max="50" />
+				</div>
+				<form id='radio-buttons' >
+					<div class='button-contaioner'>
+						<input type='radio' name='color' value='default'>
+							<label for='blue'>Blue</label><br>
+					</div>
+					<div class='button-contaioner'>
+						<input type='radio' name='color' value='rainbow'>
+						<label for='rainbow'>Rainbow</label><br>
+					</div>
+					<div class='button-contaioner'>
+						<input type='radio' name='color' value='blueRainbow'>
+							<label for='rainbow'>Blue Rainbow</label><br>
+					</div>
+					<div class='button-contaioner'>
+						<input type='radio' name='color' value='redRainbow'>
+							<label for='rainbow'>Red Rainbow</label><br>
+					</div>
+					<div class='button-contaioner'>
+						<input type='radio' name='color' value='greenRainbow'>
+							<label for='rainbow'>Green Rainbow</label><br>
+					</div>
+					<div class='button-contaioner'>
+						<input type='radio' name='color' value='darken'>
+							<label for='incrementally-darken'>Incrementally Darken</label><br>
+					</div>
+					<div class='button-contaioner'>
+						<input type='radio' name='color' value='user'>
+						<label for='color-picker'>Choose your own color...&emsp;</label><br>
+					</div>
+					<div class='button-contaioner'>
+						<input id='color-picker' type='color'>
+					</div>
+				</form>
 			</div>
-			<form id='radio-buttons' > 
-				<input type='radio' name='color' value='default'>
-				<label for='blue'>Blue</label><br>
-				<input type='radio' name='color' value='rainbow'>
-				<label for='rainbow'>Rainbow</label><br>
-				<input type='radio' name='color' value='blueRainbow'>
-				<label for='rainbow'>Blue Rainbow</label><br>
-				<input type='radio' name='color' value='redRainbow'>
-				<label for='rainbow'>Red Rainbow</label><br>
-				<input type='radio' name='color' value='greenRainbow'>
-				<label for='rainbow'>Green Rainbow</label><br>
-				<input type='radio' name='color' value='darken'>
-				<label for='incrementally-darken'>Incrementally Darken</label><br>
-				<input type='radio' name='color' value='user'>
-				<label for='color-picker'>Choose your own color...&emsp;</label><br>
-				<input id='color-picker' type='color'>
-			</form>
+			<div class="container"></div>
 		</div>
-		<div class="container"></div>
-		
-		
-	</div>
+	</main>
+	<footer class="footer">
+		<a href="https://github.com/Cwarcup" target="_blank">Created by CWARCUP</a>
+	  </footer>
+
 </body>
 </html>
-
-https://cwarcup.github.io/Etch-A-Sketch/
